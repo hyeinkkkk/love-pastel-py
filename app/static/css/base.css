@@ -1,0 +1,19 @@
+.padding-10{
+    padding: 10vw;
+}
+
+.padding-5{
+    padding: 5vw;
+}
+
+.btn{
+    padding: 3vw;
+    width: 40%;
+    border: 4px solid white;
+    background-color: transparent;
+    color: white;
+    font-size: 5vw;
+    font-family: 'Nanum Myeongjo';
+    font-style: bold;
+    font-weight: 600;
+}

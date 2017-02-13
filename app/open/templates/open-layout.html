@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/base.css') }}">
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/open.css') }}">
+<head>
+    <meta charset="UTF-8">
+    <title>사랑의 단상</title>
+</head>
+
+<script>
+
+  function showAlertDialog(content)
+  {
+       alert(content);
+  }
+
+</script>
+<body>
+
+    <div align="center">
+      {% block body %}{% endblock %}
+    </div>
+
+</body>
+</html>

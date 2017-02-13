@@ -16,6 +16,7 @@
 - uwsgi
 - xlrd
 - psycopg2
+- Blueprint
 
 ## DB install
 - postgresql
