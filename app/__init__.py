@@ -13,5 +13,5 @@ def hello():
 
 @app.route('/intro')
 def intro():
-    return redirect(url_for('open.intro'))
+    return redirect(url_for('open.init'))
     # return render_template('intro.html')

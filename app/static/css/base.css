@@ -17,3 +17,7 @@
     font-style: bold;
     font-weight: 600;
 }
+
+.font-small{
+    font-size: 3vw;
+}

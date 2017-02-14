@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en" ng-app="openApp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0-rc5/angular-material.min.css">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-sanitize.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0-rc5/angular-material.min.js"></script>
+
+
+    <script src="static/js/app.js"></script>
+    <script src="static/js/intro.js"></script>
+    <script src="static/js/survey.js"></script>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/open.css') }}">
+
+
+  </head>
+
+  <body>
+
+      {% raw %}
+
+      <div layout="column" layout-fill align="center">
+          <div ng-view layout="column" flex scroll-y></div>
+      </div>
+
+
+    {% endraw %}
+
+
+  </body>
+</html>
