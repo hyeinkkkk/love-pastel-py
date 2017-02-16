@@ -2,7 +2,10 @@
 
 # 서버 첫 구축시
 - sudo apt-get update
+- sudo apt-get install npm
 - sudo apt-get install python3-pip
+- npm install -g bower
+- ln -s /usr/bin/nodejs /usr/bin/node
 
 ## nginx 
 - sudo apt-get install nginx

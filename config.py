@@ -10,7 +10,7 @@ SQLALCHEMY_DATABASE_URI = 'postgresql://{0}:{1}@localhost:5432/{2}'.format(USERN
 SQLALCHEMY_TRACK_MODIFICATIONS = True
 DEBUG = True
 # SQLALCHEMY_ECHO = True
-SECRET_KEY = "fsdd3*/wi32^sdxs0^$"
+SECRET_KEY = "83fsdd3*/wi32^sdxs0^$"
 
 HOST = '0.0.0.0'
 PORT = 5000

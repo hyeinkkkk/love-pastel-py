@@ -1,0 +1,44 @@
+{% extends "close-layout.html" %}
+{% block body %}
+
+    <table width="100%">
+        <tr width="100%">
+            <td><img width="40%" src="/static/images/left.png"></td>
+            <td width="50%">d</td>
+            <td><img width="40%" src="/static/images/right.png"></td>
+        </tr>
+    </table>
+    <div class="padding-5"></div>
+    <div class="intro-title">{{choice_id}}/{{choice_list|length}}</div>
+    <!--<div class="padding-10"></div>-->
+    <div class="padding-5">
+        아래의 선택지 중 현재 나의 상태와 가장 가까운 항목을 선택해주세요.
+    </div>
+    <form class="padding-10" method="post" action="{{url_for('close.choice', choice_id=choice_id)}}">
+        <!--<div class="padding-5"></div>-->
+        <div>
+            <input type="hidden" name="type" value="a">
+            <input type="hidden" name="point" value="{{choice.type_a_point}}">
+            <button class="btn btn-choice" type="submit">
+                {{choice.type_a}}
+            </button>
+        </div>
+    </form>
+    <form class="padding-10" method="post" action="{{url_for('close.choice', choice_id=choice_id)}}">
+        <!--<div class="padding-5"></div>-->
+        <div>
+            <input type="hidden" name="type" value="b">
+            <input type="hidden" name="point" value="{{choice.type_b_point}}">
+            <button class="btn btn-choice" type="submit">
+                {{choice.type_b}}
+            </button>
+        </div>
+    </form>
+
+    <!--<div class="padding-10">-->
+        <!--<button class="btn btn-choice" onclick="">아무리 시간이 흘러도 결코 잊을 수 없는 그 사람만의 온기가 있다.</button>-->
+    <!--</div>-->
+    <!--<div class="padding-10">-->
+        <!--<button class="btn btn-choice" onclick="">무슨 일이 있더라도 얼마 지나지 않아 괜찮아질 수 있는 정도의 사랑이 좋다.</button>-->
+    <!--</div>-->
+{% endblock %}

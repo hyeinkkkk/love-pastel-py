@@ -1,0 +1,15 @@
+body{
+    background-color: #FBB881;
+    font-family: serif;
+    color: #615146;
+    font-size: 5vw;
+}
+
+.intro-title{
+    font-family: bold;
+}
+
+.btn-choice{
+    width: 100%;
+    padding: 10vw 8vw;
+}

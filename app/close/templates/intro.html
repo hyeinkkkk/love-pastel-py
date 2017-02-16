@@ -1,0 +1,13 @@
+{% extends "close-layout.html" %}
+{% block body %}
+    <div class="padding-10"></div>
+    <div class="intro-title">현재 당신의 사랑 온도는?</div>
+    <div class="padding-10"></div>
+    <div class="padding-5">
+        <img width="40%" src="/static/images/logo.png">
+    </div>
+
+    <div class="padding-10">
+        <button class="btn" onclick="location.href='{{url_for('close.get_choices')}}'">시작</button>
+    </div>
+{% endblock %}
