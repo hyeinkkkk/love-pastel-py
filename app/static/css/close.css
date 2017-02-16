@@ -5,11 +5,23 @@ body{
     font-size: 5vw;
 }
 
+@font-face {
+  font-family: serif;
+  font-style: normal;
+  font-weight: 600;
+}
+
 .intro-title{
-    font-family: bold;
+    font-family: serif;
+    font-weight: bold;
 }
 
 .btn-choice{
     width: 100%;
-    padding: 10vw 8vw;
+    padding: 13vw 8vw;
+    font-size: 4vw;
+}
+
+.temperature{
+    font-size: 20vw;
 }

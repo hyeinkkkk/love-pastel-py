@@ -1,21 +1,28 @@
 {% extends "close-layout.html" %}
 {% block body %}
 
-    <table width="100%">
-        <tr width="100%">
-            <td><img width="40%" src="/static/images/left.png"></td>
-            <td width="50%">d</td>
-            <td><img width="40%" src="/static/images/right.png"></td>
+    {% if choice_id == 1 %}
+    <div class="padding-7"></div>
+
+    {% else %}
+    <table width="90%">
+        <tr>
+            <td><img width="15%" onclick="location.href='javascript:history.back()'" src="/static/images/left.png"></td>
+            <!--<td><img width="15%" onclick="location.href='{{url_for('close.previous')}}'" src="/static/images/left.png"></td>-->
+            <!--<td width="50%">d</td>-->
+            <!--<td><img width="40%" src="/static/images/right.png"></td>-->
         </tr>
+
     </table>
-    <div class="padding-5"></div>
+    {% endif %}
+
+
     <div class="intro-title">{{choice_id}}/{{choice_list|length}}</div>
-    <!--<div class="padding-10"></div>-->
+
     <div class="padding-5">
         아래의 선택지 중 현재 나의 상태와 가장 가까운 항목을 선택해주세요.
     </div>
-    <form class="padding-10" method="post" action="{{url_for('close.choice', choice_id=choice_id)}}">
-        <!--<div class="padding-5"></div>-->
+    <form class="padding-7" method="post" action="{{url_for('close.choice', choice_id=choice_id)}}">
         <div>
             <input type="hidden" name="type" value="a">
             <input type="hidden" name="point" value="{{choice.type_a_point}}">
@@ -24,8 +31,7 @@
             </button>
         </div>
     </form>
-    <form class="padding-10" method="post" action="{{url_for('close.choice', choice_id=choice_id)}}">
-        <!--<div class="padding-5"></div>-->
+    <form class="padding-7" method="post" action="{{url_for('close.choice', choice_id=choice_id)}}">
         <div>
             <input type="hidden" name="type" value="b">
             <input type="hidden" name="point" value="{{choice.type_b_point}}">

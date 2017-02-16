@@ -16,6 +16,7 @@ def intro():
 def get_choices():
     choice_list = answers.get_all()
     session['my_temperature'] = 36.5
+    session['my_choice_list'] = []
     current_choice = choice_list[0]
     return redirect(url_for('close.choice', choice_id=current_choice['id']))
 
@@ -24,25 +25,43 @@ def choice(choice_id):
     choice_obj = answers.get(choice_id)
     choice_list = answers.get_all()
 
+    for my_choice in session['my_choice_list']:
+        if choice_id == my_choice['choice_id']:
+            print("지웠다.")
+            session['my_choice_list'].remove(my_choice)
+
     if request.method == 'POST':
+        if not 'my_choice_list' in session:
+            return redirect(url_for('close.get_choices'))
+
+        my_choice = dict(choice_id=choice_id,
+                         type=request.form.get('type'),
+                         point=float(request.form.get('point')))
+        session['my_choice_list'].append(my_choice)
+
         if choice_id == len(choice_list):
             return redirect(url_for('close.result'))
-
-        if not 'my_temperature' in session:
-            return redirect(url_for('close.get_choices'))
-        session['my_temperature'] += float(request.form.get('point'))
-        print("my temperature?? ",session['my_temperature'])
         return redirect(url_for('close.choice', choice_id=choice_id+1))
 
     return render_template("choice-answer.html", choice_list=choice_list,
                            choice=choice_obj, choice_id=choice_id)
 
+@close_page.route('/previous')
+def previous():
+    last_choice = session['my_choice_list'].pop()
+    # session['my_temperature'] -= last_choice['point']
+    print("temperatures???  ",  session['my_temperature'])
+    return redirect(url_for('close.choice', choice_id=last_choice['choice_id']))
 
 @close_page.route('/result')
 def result():
-    my_temperature = session['my_temperature']
+    # my_temperature = session['my_temperature']
+    my_choice_list = session['my_choice_list']
+    my_temperature = 36.5
+    for my_choice in my_choice_list:
+        print("point ??? ",my_choice['point'])
+        my_temperature += my_choice['point']
     my_result = temperatures.get(my_temperature)
-    print(my_result)
     return render_template("result.html", my_temperature=my_temperature, my_result=my_result)
 
 
