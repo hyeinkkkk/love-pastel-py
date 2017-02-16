@@ -1,6 +1,4 @@
 from app import app
-from flask.sessions import SessionInterface
-from beaker.middleware import SessionMiddleware
 
 
 session_opts = {
@@ -9,17 +7,9 @@ session_opts = {
     'session.data_dir': './cache',
 }
 
-class BeakerSessionInterface(SessionInterface):
-    def open_session(self, app, request):
-        session = request.environ['beaker.session']
-        return session
-
-    def save_session(self, app, session, response):
-        session.save()
 
 
 if __name__ == '__main__':
-    app.wsgi_app = SessionMiddleware(app.wsgi_app, session_opts)
-    app.session_interface = BeakerSessionInterface()
+
     app.debug = True
     app.run(host='0.0.0.0')

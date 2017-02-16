@@ -16,6 +16,8 @@ from app.models import players
 from app.models import songs
 from app.models import types
 from app.models import votes
+from app.models import answers
+from app.models import temperatures
 
 app.register_blueprint(open_page, url_prefix='/open')
 app.register_blueprint(close_page, url_prefix='/close')
@@ -59,3 +61,14 @@ def vote():
     for song in selected_song_list:
         votes.add(player_id, song['id'], song['priority'])
     return JSONEncoder(ensure_ascii=False).encode({'player_type': player_type})
+
+@app.route('/choices')
+def get_choices():
+    choice_list = answers.get_all()
+    return JSONEncoder(ensure_ascii=False).encode({'choice_list': choice_list})
+
+@app.route('/temperatures', methods=['POST'])
+def get_temperature():
+    temper = request.get_json()
+    my_result = temperatures.get(temper)
+    return JSONEncoder(ensure_ascii=False).encode({'my_result': my_result, 'my_temperature':temper})

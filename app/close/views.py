@@ -1,21 +1,13 @@
-from flask import Blueprint, render_template, redirect, url_for, request
+from flask import Blueprint, render_template, redirect, url_for, request, session
 from app.models import answers
 from app.models import temperatures
 
-close_page = Blueprint('close', __name__, template_folder='templates', static_folder='..css')
-
-from beaker.middleware import SessionMiddleware
-
-session_opts = {
-    'session.type': 'ext:memcached',
-    'session.url': '127.0.0.1:11211',
-    'session.data_dir': './cache',
-}
-
+close_page = Blueprint('close', __name__, template_folder='templates', static_folder='static')
 
 @close_page.route('/')
 def init():
-    return redirect(url_for('close.intro'))
+    return render_template('close-index.html')
+    # return redirect(url_for('close.intro'))
 
 @close_page.route('/intro')
 def intro():
@@ -24,17 +16,19 @@ def intro():
 @close_page.route('/choice')
 def get_choices():
     choice_list = answers.get_all()
-    session = request.environ['beaker.session']
+
+    # session = request.environ['beaker.session']
     session['my_temperature'] = 36.5
     session['my_choice_list'] = []
     current_choice = choice_list[0]
+    print (session['my_temperature'])
     return redirect(url_for('close.choice', choice_id=current_choice['id']))
 
 @close_page.route('/choices/<int:choice_id>', methods=['GET', 'POST'])
 def choice(choice_id):
     choice_obj = answers.get(choice_id)
     choice_list = answers.get_all()
-    session = request.environ['beaker.session']
+    # session = request.environ['beaker.session']
 
     for my_choice in session['my_choice_list']:
         if choice_id == my_choice['choice_id']:
@@ -58,7 +52,7 @@ def choice(choice_id):
 
 @close_page.route('/previous')
 def previous():
-    session = request.environ['beaker.session']
+    # session = request.environ['beaker.session']
     last_choice = session['my_choice_list'].pop()
     # session['my_temperature'] -= last_choice['point']
     print("temperatures???  ",  session['my_temperature'])
@@ -67,7 +61,7 @@ def previous():
 @close_page.route('/result')
 def result():
     # my_temperature = session['my_temperature']
-    session = request.environ['beaker.session']
+    # session = request.environ['beaker.session']
     my_choice_list = session['my_choice_list']
     my_temperature = 36.5
     for my_choice in my_choice_list:
