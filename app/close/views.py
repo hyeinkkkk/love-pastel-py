@@ -1,16 +1,16 @@
-from flask import Blueprint, render_template, redirect, url_for, request
+from flask import Blueprint, render_template, redirect, url_for, request, session
 from app.models import answers
 
 close_page = Blueprint('close', __name__, template_folder='templates', static_folder='..css')
 
 @close_page.route('/')
 def init():
-    # session['login'] = True
+    session['login'] = True
     return redirect(url_for('close.intro'))
 
 @close_page.route('/intro')
 def intro():
-    # print("session is available ", session['login'])
+    print("session is available ", session['login'])
     return render_template("intro.html")
 
 @close_page.route('/choice')
