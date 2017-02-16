@@ -8,6 +8,18 @@ openApp.config([
         }).when('/survey', {
             controller: 'SurveyControllor',
             templateUrl: 'static/html/survey.html'
+        }).when('/list/:playerId', {
+            controller: 'ListControllor',
+            templateUrl: 'static/html/list.html'
+        }).when('/priority/:playerId', {
+            controller: 'PriorityControllor',
+            templateUrl: 'static/html/priority.html'
+        }).when('/result/:playerId', {
+            controller: 'ResultControllor',
+            templateUrl: 'static/html/result.html'
+        }).when('/thanks', {
+            controller: 'ThanksControllor',
+            templateUrl: 'static/html/thanks.html'
         })
         .otherwise({
             redirectTo: "/intro"
@@ -40,7 +52,23 @@ openApp.filter("newLineByComma", function($filter) {
 
 
 openApp.factory('dataStorage', function() {
-     var savedData = {}
+     var savedData = undefined
+     function set(data) {
+       savedData = data;
+     }
+     function get() {
+      return savedData;
+     }
+
+     return {
+      set: set,
+      get: get
+     }
+
+});
+
+openApp.factory('playerTypeStorage', function() {
+     var savedData = undefined
      function set(data) {
        savedData = data;
      }

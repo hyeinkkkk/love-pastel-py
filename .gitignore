@@ -4,7 +4,6 @@
 */*/__pycache__/*
 __pycache__/*
 */__pycache__/*
-
-
-
 app/__pycache__/__init__.cpython-34.pyc
+
+app/static/bower_components/*

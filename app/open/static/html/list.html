@@ -1,0 +1,30 @@
+<!--<div class="padding-5"></div>-->
+<div layout="column">
+    <div ng-if="selectedArr.length != maxCount" layout="column" class="padding-5">
+        아래의 목록 중 가장 와닿는 가사말<br>3개를 선택해주세요.
+    </div>
+    <div ng-if="selectedArr.length == maxCount" layout="column" class="padding-5">
+        아래의 다음 버튼을 눌러주세요.
+    </div>
+    <div layout="column" class="padding-5">
+        {{selectedArr.length}}/{{maxCount}}
+    </div>
+
+    <div class="divider"></div>
+    <div layout="column" >
+        <md-content>
+            <md-list flex>
+            <md-list-item align="center center" flex  ng-repeat="song in songs" ng-click="selectSongs(song,$event)">
+                <div flex class="div-lyric {{song.check ? 'selected' : ''}}"  layout="column">
+                    {{ song.lyric }}
+                </div>
+            </md-list-item>
+            </md-list>
+        </md-content>
+
+    </div>
+    <div class="padding-10">
+        <button ng-if="selectedArr.length == maxCount" class="btn" ng-click="nextPage()">다음</button>
+    </div>
+
+</div>

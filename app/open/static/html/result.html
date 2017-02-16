@@ -1,0 +1,13 @@
+<div layout="column" flex>
+    <div layout="column" class="padding-10" flex="5"></div>
+    <div layout="column" class="result-title" flex="5">
+        가사말을 통해 알아보는 당신과 어울리는 뮤지션
+    </div>
+    <div layout="column" layout-align="center center" flex="40">
+        <h1>{{type.name}}</h1>
+    </div>
+    <div layout="column" layout-align="center center" class="result-description" ng-bind-html="type.description" flex="25"></div>
+    <div layout="column" layout-align="center center" flex="25">
+        <button class="btn" ng-click="nextPage()">확인</button>
+    </div>
+</div>
