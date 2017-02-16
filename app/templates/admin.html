@@ -1,0 +1,9 @@
+{% extends "close-layout.html" %}
+{% block body %}
+    <div class="padding-10">패스워드를 입력해주세요.</div>
+    <form method="post" action="{{url_for('login_admin')}}">
+        <input type="password" name="password">
+        <input type="submit" value="로그인">
+    </form>
+
+{% endblock %}

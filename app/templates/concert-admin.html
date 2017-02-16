@@ -1,0 +1,30 @@
+{% extends "close-layout.html" %}
+{% block body %}
+    <div class="padding-10">현재 첫 페이지.</div>
+    <div>{{concert.name}}</div>
+    <div>{{concert.state}}</div>
+
+        <table>
+            <tr>
+                <td>
+                    <form method="post" action="{{url_for('change_state')}}">
+                        <input type="hidden" name="state" value="open">
+                        <input type="submit" value="공연전">
+                    </form>
+                </td>
+                <td>
+                    <form method="post" action="{{url_for('change_state')}}">
+                        <input type="hidden" name="state" value="ing">
+                        <input type="submit" value="공연중">
+                    </form>
+                </td>
+                <td>
+                    <form method="post" action="{{url_for('change_state')}}">
+                        <input type="hidden" name="state" value="close">
+                        <input type="submit" value="공연후">
+                    </form>
+                </td>
+            </tr>
+        </table>
+
+{% endblock %}

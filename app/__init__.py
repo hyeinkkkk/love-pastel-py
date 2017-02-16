@@ -18,19 +18,34 @@ from app.models import types
 from app.models import votes
 from app.models import answers
 from app.models import temperatures
+from app.models import concert as concert_infomation
 
 app.register_blueprint(open_page, url_prefix='/open')
 app.register_blueprint(close_page, url_prefix='/close')
 
 @app.route('/')
 def hello():
-    return redirect('close')
+    concert = concert_infomation.get()
+    if concert['state'] == 'open':
+        return redirect(url_for('open'))
+    elif concert['state'] == 'close':
+        return redirect(url_for('close'))
+    return redirect(url_for('sorry'))
 
 
 @app.route('/open')
 def open():
     return redirect(url_for('open.init'))
     # return render_template('intro.html')
+
+@app.route('/ing')
+def sorry():
+    concert = concert_infomation.get()
+    if concert['state'] == 'open':
+        return redirect(url_for('open'))
+    elif concert['state'] == 'close':
+        return redirect(url_for('close'))
+    return render_template("sorry.html")
 
 @app.route('/close')
 def close():
@@ -72,3 +87,19 @@ def get_temperature():
     temper = request.get_json()
     my_result = temperatures.get(temper)
     return JSONEncoder(ensure_ascii=False).encode({'my_result': my_result, 'my_temperature':temper})
+
+@app.route('/admin', methods=['GET','POST'])
+def login_admin():
+    if request.method == 'POST' and request.form.get('password') == 'vktmxpf':
+        print("dds ")
+        return redirect(url_for('change_state'))
+    return render_template("admin.html")
+
+
+@app.route('/concert', methods=['GET','POST'])
+def change_state():
+    concert = concert_infomation.get()
+    if request.method == 'POST':
+        print("request.form.get('password')", request.form.get('state'))
+        concert = concert_infomation.change_state(request.form.get('state'))
+    return render_template("concert-admin.html", concert=concert)

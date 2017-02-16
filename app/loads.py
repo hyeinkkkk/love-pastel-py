@@ -1,6 +1,7 @@
 # coding:UTF-8
 from os import path
 from xlrd import open_workbook
+from app.common import create_or_update_query
 from app.models.singers import Singer
 from app.models.songs import Song
 from app.models.types import Type
@@ -8,6 +9,7 @@ from app.models.players import Player
 from app.models.votes import Vote
 from app.models.answers import Answer
 from app.models.temperatures import Temperature
+from app.models.concert import Concert
 
 from app import db
 
@@ -33,12 +35,18 @@ class Excel(metaclass=Singleton):
         return self.wb
 
     def create_all_data(self):
+        self.create_concert()
         self.create_type_data(excel_session.load_wb(import_xl_path+intro_xl_path))
         self.create_singer_data(excel_session.load_wb(import_xl_path+intro_xl_path))
         self.create_song_data(excel_session.load_wb(import_xl_path+intro_xl_path))
         self.create_answer_data(excel_session.load_wb(import_xl_path+end_xl_path))
         self.create_temperature_data(excel_session.load_wb(import_xl_path+end_xl_path))
 
+    def create_concert(self):
+        if Concert.query.count():
+            return
+        c = Concert(name="사랑의 단상", state="open")
+        create_or_update_query(c)
 
     def create_song_data(self,wb):
         if Song.query.count():

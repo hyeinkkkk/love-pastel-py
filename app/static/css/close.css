@@ -1,19 +1,19 @@
 body{
     background-color: #FBB881;
-    font-family: serif;
+    /*font-family: serif; */
+    font-family: 'Nanum Myeongjo', serif;
     color: #615146;
     font-size: 5vw;
 }
 
-@font-face {
-  font-family: serif;
-  font-style: normal;
-  font-weight: 600;
+.intro-title{
+    /* font-family: 'Nanum Myeongjo'; */
+    font-family: 'Nanum Myeongjo', serif;
+    font-weight: bold;
 }
 
-.intro-title{
-    font-family: serif;
-    font-weight: bold;
+.choice-title{
+    font-size: 4vw;
 }
 
 .btn-choice{

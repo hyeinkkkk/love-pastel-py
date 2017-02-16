@@ -1,13 +1,15 @@
-
+<div layout="column" flex>
     <div class="padding-10"></div>
-    <div class="intro-title">현재 나의 사랑 온도</div>
-    <div class="padding-10"></div>
-    <div class="padding-10 temperature">
+    <div layout="column" class="intro-title">현재 나의 사랑 온도</div>
+    <div class="padding-5"></div>
+    <div layout="column" class="padding-10 temperature">
         {{myTemperature |  number:1}}
     </div>
-    <div class="padding-10">
+    <div layout="column" class="padding-10">
         {{myResult.description}}
     </div>
-    <div class="padding-10">
+    <div layout="column" class="padding-10">
         <button class="btn" ng-click="nextPage()">확인</button>
     </div>
+</div>
+
