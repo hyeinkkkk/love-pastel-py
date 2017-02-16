@@ -27,7 +27,6 @@ def choice(choice_id):
 
     for my_choice in session['my_choice_list']:
         if choice_id == my_choice['choice_id']:
-            print("지웠다.")
             session['my_choice_list'].remove(my_choice)
 
     if request.method == 'POST':
@@ -59,7 +58,7 @@ def result():
     my_choice_list = session['my_choice_list']
     my_temperature = 36.5
     for my_choice in my_choice_list:
-        print("point ??? ",my_choice['point'])
+        # print("point ??? ",my_choice['point'])
         my_temperature += my_choice['point']
     my_result = temperatures.get(my_temperature)
     return render_template("result.html", my_temperature=my_temperature, my_result=my_result)

@@ -20,6 +20,7 @@
 - xlrd
 - psycopg2
 - Blueprint
+- beaker
 
 ## DB install
 - postgresql
