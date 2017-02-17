@@ -7,9 +7,6 @@ openApp.controller('ChoiceAnswerControllor', function($scope,$http,$location,dat
         .then(function(response){
             $scope.choiceList = response.data.choice_list;
             $scope.currentChoice = $scope.choiceList[currentIndex]
-//            angular.forEach($scope.songs , function(song) {
-//                song.check = false;
-//            });
             console.log("response? ",response.data);
         });
     }
