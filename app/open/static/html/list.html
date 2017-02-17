@@ -14,9 +14,12 @@
     <div layout="column" >
         <md-content>
             <md-list flex>
-            <md-list-item align="center center" flex  ng-repeat="song in songs" ng-click="selectSongs(song,$event)">
-                <div flex class="div-lyric {{song.check ? 'selected' : ''}}"  layout="column">
-                    {{ song.lyric }}
+            <md-list-item layout="row" align="center center" flex  ng-repeat="song in songs" ng-click="selectSongs(song,$event)">
+                <div flex class="div-lyric {{song.check ? 'selected' : ''}}"  layout="row">
+                    <div layout="column" flex="15">&nbsp;</div>
+                    <div align="center" layout="column" flex>{{ song.lyric }}</div>
+                    <div layout="column" flex="15">&nbsp;</div>
+
                 </div>
             </md-list-item>
             </md-list>

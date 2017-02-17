@@ -2,11 +2,16 @@
     <div class="padding-10"></div>
     <div layout="column" class="intro-title">현재 나의 사랑 온도</div>
     <div class="padding-5"></div>
-    <div layout="column" class="padding-10 temperature">
-        {{myTemperature |  number:1}}
+    <div layout="row" class="padding-10 temperature" layout-align="center center">
+        <div layout="column" align="center" style="padding-left: 10vw;" layout-align="center center">
+            {{myTemperature |  number:1}}
+        </div>
+        <div layout="column" align="left" style="align-items: baseline; padding-left:5vw;" layout-align="start center">
+            <img width="68%" src="/static/images/c.png">
+        </div>
+
     </div>
-    <div layout="column" class="padding-10">
-        {{myResult.description}}
+    <div layout="column" class="padding-10 result-description" ng-bind-html="myResult.description">
     </div>
     <div layout="column" class="padding-10">
         <button class="btn" ng-click="nextPage()">확인</button>

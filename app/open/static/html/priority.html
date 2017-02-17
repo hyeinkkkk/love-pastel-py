@@ -13,12 +13,13 @@
         <md-list flex>
         <md-list-item align="center center" flex  ng-repeat="song in songs" >
 
-            <div flex class="div-lyric {{song.priorityCheck ? 'selected' : ''}}" ng-click="selectSongs(song,$event)" layout="column">
-                <div align="center" width="100%" class="select-priority">
-                    <img max-height="100%"  ng-show="song.priorityCheck"  ng-src="/static/images/{{song.priority}}.png">
+            <div flex class="div-lyric {{song.priorityCheck ? 'selected' : ''}}" ng-click="selectSongs(song,$event)" layout="row">
+                <div layout="column" layout-align="center center" flex="15" align="center" width="100%">
+                    <img width="70%" ng-show="song.priorityCheck"  ng-src="/static/images/{{song.priority}}.png">
                 </div>
+                <div layout="column" flex>{{ song.lyric }}</div>
+                <div layout="column" flex="15">&nbsp;</div>
 
-                {{ song.lyric }}
             </div>
         </md-list-item>
         </md-list>

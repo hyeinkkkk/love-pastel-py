@@ -14,14 +14,22 @@ body{
 
 .choice-title{
     font-size: 4vw;
+    line-height: 6vw;
 }
 
 .btn-choice{
     width: 100%;
-    padding: 13vw 8vw;
+    padding: 10vw 6vw;
     font-size: 4vw;
+    line-height: 6vw;
 }
 
 .temperature{
-    font-size: 20vw;
+    font-size: 18vw;
+}
+
+.result-description{
+    padding: 6vw 15vw;
+    font-size: 4vw;
+    line-height: 6vw;
 }

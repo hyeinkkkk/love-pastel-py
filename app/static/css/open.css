@@ -1,15 +1,10 @@
 body{
     background-color: #EDA69F;
-    font-family: serif;/*'Nanum Myeongjo'; */
+    font-family: 'Nanum Myeongjo', serif;
     color: #615146;
     font-size: 5vw;
 }
 
-@font-face {
-  font-family: serif;
-  font-style: normal;
-  font-weight: 400;
-}
 /*
 @font-face {
   font-family: 'Nanum Myeongjo';
@@ -25,6 +20,8 @@ body{
 
 .white-font{
     color: #615146;
+    font-family: 'Nanum Myeongjo', serif;
+
 }
 
 md-select .md-select-value.md-select-placeholder{
@@ -47,7 +44,7 @@ md-content{
     background: #F2BDB7;
     width: 80%;
     margin: 2vw;
-    padding: 2vw 15vw;
+    padding: 2vw;
     font-size: 4vw;
     line-height: 6vw;
 }
@@ -55,6 +52,7 @@ md-content{
 .selected{
     background: #615146 !important;
     color: #EDA69F !important;
+    text-align: left;
 }
 
 .select-priority{
@@ -90,5 +88,5 @@ md-content{
 .thanks-title{
     font-size: 5vw;
     font-weight: bold;
-    padding: 2vw 10vw;
+    padding: 5vw 10vw;
 }
