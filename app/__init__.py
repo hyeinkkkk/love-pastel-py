@@ -95,6 +95,11 @@ def login_admin():
         return redirect(url_for('change_state'))
     return render_template("admin.html")
 
+@app.route('/concert/state')
+def get_state():
+    concert = concert_infomation.get()
+    print("concert")
+    return JSONEncoder(ensure_ascii=False).encode({'state': concert['state']})
 
 @app.route('/concert', methods=['GET','POST'])
 def change_state():
