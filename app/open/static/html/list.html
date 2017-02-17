@@ -17,9 +17,9 @@
             <md-list flex>
             <md-list-item layout="row" align="center center" flex  ng-repeat="song in songs" ng-click="selectSongs(song,$event)">
                 <div flex class="div-lyric {{song.check ? 'selected' : ''}}"  layout="row">
-                    <div layout="column" flex="10">&nbsp;</div>
-                    <div align="center" layout="column" flex>{{ song.lyric }}</div>
-                    <div layout="column" flex="10">&nbsp;</div>
+                    <div layout="column" flex="5">&nbsp;</div>
+                    <div align="center" layout="column" ng-bind-html="song.lyric" flex></div>
+                    <div layout="column" flex="5">&nbsp;</div>
 
                 </div>
             </md-list-item>

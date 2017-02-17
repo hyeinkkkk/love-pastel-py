@@ -81,8 +81,9 @@ md-content{
 }
 
 .result-description{
-    font-size: 4vw;
+    font-size: 5vw;
     padding: 5vw 10vw;
+    line-height: 7vw;
 }
 
 .thanks-title{

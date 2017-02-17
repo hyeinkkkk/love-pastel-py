@@ -27,12 +27,12 @@ openApp.controller('ChoiceAnswerControllor', function($scope,$http,$location,dat
         if($scope.choiceList.length == currentIndex){
             temperature = 36.5;
             angular.forEach($scope.myChoiceList , function(choice) {
-                console.log("choice .point ",choice.choice_id);
                 temperature += choice.point;
             });
 
             console.log("temperature?? ",parseFloat(temperature).toFixed(1))
-            dataStorage.set(temperature)
+            data = {choice_list : $scope.myChoiceList, temperature: temperature}
+            dataStorage.set(data)
             $location.path("/result");
         }
 

@@ -1,12 +1,13 @@
 openApp.controller('ResultControllor', function($scope,$http,$location,dataStorage)
 {
-    myTemperature = dataStorage.get();
-    if(myTemperature == undefined){
+    data = dataStorage.get();
+    if(data== undefined){
         $location.path("/choice-answer");
         return;
     }
     function getMyTemperature(){
-        postData = myTemperature
+
+        postData = data
         $http.post("/temperatures", postData)
         .then(function(response){
             $scope.myTemperature = response.data.my_temperature;

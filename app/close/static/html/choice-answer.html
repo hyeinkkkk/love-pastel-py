@@ -17,13 +17,11 @@
     </div>
 
         <div layout="column" class="padding-7">
-            <button class="btn btn-choice" ng-click="clickAnswer(currentChoice, 'a')">
-                {{currentChoice.type_a}}
+            <button class="btn btn-choice" ng-bind-html="currentChoice.type_a" ng-click="clickAnswer(currentChoice, 'a')">
             </button>
         </div>
 
         <div layout="column" class="padding-7">
-            <button class="btn btn-choice" ng-click="clickAnswer(currentChoice, 'b')">
-                {{currentChoice.type_b}}
+            <button class="btn btn-choice" ng-bind-html="currentChoice.type_b" ng-click="clickAnswer(currentChoice, 'b')">
             </button>
         </div>

@@ -21,25 +21,28 @@ openApp.controller('ListControllor', function($scope,$http,$location,$routeParam
     getSongs();
 
     $scope.selectSongs = function(item,event){
-            if(!item.check){
-                item.check = true;
-                $scope.selectedArr.push(item);
-                // item.priority = $scope.selectedArr.length;
-            }else{
-                console.log("$scope.selectedArr.indexOf(item)",$scope.selectedArr.indexOf(item));
-                $scope.selectedArr.splice($scope.selectedArr.indexOf(item),1);
-                item.check = false;
-            }
-
-            if($scope.selectedArr.length == $scope.maxCount){
-                dialogText = ""
-                dataStorage.set($scope.selectedArr);
-            }
-
-            console.log("priorityArr ",$scope.selectedArr);
-        };
-
-        $scope.nextPage = function(){
-            $location.path("/priority/"+playerId);
+        if($scope.selectedArr.length == $scope.maxCount && !item.check){
+            return;
         }
+        if(!item.check){
+            item.check = true;
+            $scope.selectedArr.push(item);
+            // item.priority = $scope.selectedArr.length;
+        }else{
+            console.log("$scope.selectedArr.indexOf(item)",$scope.selectedArr.indexOf(item));
+            $scope.selectedArr.splice($scope.selectedArr.indexOf(item),1);
+            item.check = false;
+        }
+
+        if($scope.selectedArr.length == $scope.maxCount){
+            dialogText = ""
+            dataStorage.set($scope.selectedArr);
+        }
+
+        console.log("priorityArr ",$scope.selectedArr);
+    };
+
+    $scope.nextPage = function(){
+        $location.path("/priority/"+playerId);
+    }
 });

@@ -5,11 +5,13 @@ from app.common import create_or_update_query
 from app.models.singers import Singer
 from app.models.songs import Song
 from app.models.types import Type
-from app.models.players import Player
-from app.models.votes import Vote
 from app.models.answers import Answer
 from app.models.temperatures import Temperature
 from app.models.concert import Concert
+from app.models.players import Player
+from app.models.votes import Vote
+from app.models.player_choices import PlayerChoices
+from app.models.player_temperatures import PlayerTemperatures
 
 from app import db
 
