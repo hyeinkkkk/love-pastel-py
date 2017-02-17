@@ -49,7 +49,7 @@ openApp.controller('PriorityControllor', function($scope,$http,$location,$routeP
                 console.log("type?? ",typeList[i])
                 if(typeList[i].id == song.type_id){
                     exist = true
-                    if(typeList[i].priority > song.priority){
+                    if(song.priority < typeList[i].priority){
                         typeList[i].priority = song.priority;
                     }
                     typeList[i].count ++;
@@ -60,8 +60,10 @@ openApp.controller('PriorityControllor', function($scope,$http,$location,$routeP
             }
         });
 
-        playerType= orderList = $filter('orderBy')(typeList,'count',-1)[0]
-//        console.log("orderLsit??? ",orderList[0])
+        playerType = $filter('orderBy')(typeList,'count',-1)[0]
+        if(playerType.count == 1){
+            playerType = $filter('orderBy')(typeList,'priority')[0]
+        }
 
         $http({
           url: "/submit-vote",
