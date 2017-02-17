@@ -1,7 +1,7 @@
 <!--<div class="padding-5"></div>-->
 <div layout="column">
     <div ng-if="selectedArr.length != maxCount" layout="column" class="padding-5">
-        아래의 목록 중 가장 와닿는 가사말<br>3개를 선택해주세요.
+        아래의 목록 21개 중 가장 와닿는<br>가사말 3개를 선택해주세요.
     </div>
     <div ng-if="selectedArr.length == maxCount" layout="column" class="padding-5">
         아래의 다음 버튼을 눌러주세요.
@@ -12,7 +12,7 @@
     </div>
 
     <!--<div class="divider"></div>-->
-    <div layout="column" >
+    <div layout="column" style="overflow: scroll;">
         <md-content>
             <md-list flex>
             <md-list-item layout="row" align="center center" flex  ng-repeat="song in songs" ng-click="selectSongs(song,$event)">
